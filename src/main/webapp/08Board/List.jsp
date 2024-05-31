@@ -25,11 +25,13 @@ dao.close();
 <head>
 <meta charset="UTF-8">
 <title>회원제 게시판</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <jsp:include page="../Common/Link.jsp" />
     <h2>목록 보기(List)</h2>
-    <!-- 검색폼 --> 
+
     <form method="get">  
     <table border="1" width="90%">
     <tr>
@@ -39,14 +41,14 @@ dao.close();
                 <option value="content">내용</option>
             </select>
             <input type="text" name="searchWord" />
-            <input type="submit" value="검색하기" />
+            <button type="submit" class="btn btn-primary">검색하기</button>
         </td>
     </tr>   
     </table>
     </form>
-    <!-- 게시물 목록 테이블(표) --> 
+
     <table border="1" width="90%">
-        <!-- 각 칼럼의 이름 --> 
+
         <tr>
             <th width="10%">번호</th>
             <th width="50%">제목</th>
@@ -68,29 +70,30 @@ if (boardLists.isEmpty()) {
 }
 else {
     // 게시물이 있을 때 
-    int virtualNum = 0;  // 화면상에서의 게시물 번호
+    int virtualNum = 0; 
     for (BoardDTO dto : boardLists)
     {
-        virtualNum = totalCount--;  // 전체 게시물 수에서 시작해 1씩 감소
+        virtualNum = totalCount--;  
 %>
         <tr align="center">
-            <td><%= virtualNum %></td>  <!--게시물 번호-->
-            <td align="left">  <!--제목(+ 하이퍼링크)-->
+            <td><%= virtualNum %></td> 
+            <td align="left">
                 <a href="View.jsp?num=<%= dto.getNum() %>"><%= dto.getTitle() %></a> 
             </td>
-            <td align="center"><%= dto.getId() %></td>          <!--작성자 아이디-->
-            <td align="center"><%= dto.getVisitcount() %></td>  <!--조회수-->
-            <td align="center"><%= dto.getPostdate() %></td>    <!--작성일-->
+            <td align="center"><%= dto.getId() %></td>    
+            <td align="center"><%= dto.getVisitcount() %></td>  
+            <td align="center"><%= dto.getPostdate() %></td>  
         </tr>
 <%
     }
 }
 %>
+
     </table>
-    <!--목록 하단의 [글쓰기] 버튼-->
+ 
     <table border="1" width="90%">
         <tr align="right">
-            <td><button type="button" onclick="location.href='Write.jsp';">글쓰기
+            <td><button type="submit" class="btn btn-primary" onclick="location.href='Write.jsp';">글쓰기
                 </button></td>
         </tr>
     </table>
