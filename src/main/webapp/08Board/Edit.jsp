@@ -51,7 +51,7 @@ function validateForm(form) {
         <tr>
             <td>내용</td>
             <td>
-                <textarea name="content" style="width: 90%; height: 100px;"> <%= dto.getContent() %></textarea>
+                <textarea name="content" style="width: 90%; height: 100px;"><%= dto.getContent() %></textarea>
             </td>
         </tr>
         <tr>

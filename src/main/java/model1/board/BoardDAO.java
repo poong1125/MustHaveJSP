@@ -196,8 +196,8 @@ public class BoardDAO extends JDBConnect {
         
         try {
             psmt = con.prepareStatement(query);
-            psmt.setString(1, num);  // 인파라미터를 일련번호로 설정 
-            psmt.executeQuery();     // 쿼리 실행 
+            psmt.setString(1, num);
+            psmt.executeQuery();    
         } 
         catch (Exception e) {
             System.out.println("게시물 조회수 증가 중 예외 발생");
@@ -209,7 +209,7 @@ public class BoardDAO extends JDBConnect {
     	int result = 0;
     	
     	try {
-    		String query = "UPDATE board SET title =?, content=> WHERE num=?";
+    		String query = "UPDATE board SET title=?, content=? WHERE num=?";
     		
     		psmt = con.prepareStatement(query);
     		psmt.setString(1, dto.getTitle());
