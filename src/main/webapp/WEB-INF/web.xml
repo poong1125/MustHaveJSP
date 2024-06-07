@@ -10,56 +10,95 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   <context-param>
-  	<param-name>INIT_PARAM</param-name>
-  	<param-value>web.xml에 저장한 초기화 매개변수</param-value>
-  </context-param>
-  <error-page>
-  	<error-code>404</error-code>
-  	<location>/02ImplicitObject/Exception.jsp</location>
-  </error-page>
-  <error-page>
-  	<error-code>405</error-code>
-  	<location>/02ImplicitObject/Exception.jsp</location>
-  </error-page>
-  <error-page>
-  	<error-code>500</error-code>
-  	<location>/02ImplicitObject/Exception.jsp</location>
-  </error-page>
-  
-  <context-param>
-  	<param-name>OracleDriver</param-name>
-  	<param-value>oracle.jdbc.OracleDriver</param-value>
+    <param-name>INIT_PARAM</param-name>
+    <param-value>web.xml에 저장한 초기화 매개변수</param-value>
   </context-param>
   <context-param>
-  	<param-name>OracleURL</param-name>
-  	<param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+    <param-name>OracleDriver</param-name>
+    <param-value>oracle.jdbc.OracleDriver</param-value>
   </context-param>
   <context-param>
-  	<param-name>OracleId</param-name>
-  	<param-value>c##musthave</param-value>
+    <param-name>OracleURL</param-name>
+    <param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
   </context-param>
   <context-param>
-  	<param-name>OraclePwd</param-name>
-  	<param-value>1234</param-value>
+    <param-name>OracleId</param-name>
+    <param-value>c##musthave</param-value>
+  </context-param>
+  <context-param>
+    <param-name>OraclePwd</param-name>
+    <param-value>1234</param-value>
   </context-param>
   <filter>
-  <filter-name>SetCharEncoding</filter-name>
-  <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
-  	<init-param>
-  		<param-name>encoding</param-name>
-  		<param-value>UTF-8</param-value>
-  	</init-param>
+    <filter-name>SetCharEncoding</filter-name>
+    <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
   </filter>
   <filter-mapping>
-  <filter-name>SetCharEncoding</filter-name>
-  <url-pattern>/*</url-pattern>
+    <filter-name>SetCharEncoding</filter-name>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
-    <context-param>
-  	<param-name>POSTS_PER_PAGE</param-name>
-  	<param-value>10</param-value>
+  <context-param>
+    <param-name>POSTS_PER_PAGE</param-name>
+    <param-value>10</param-value>
   </context-param>
   <context-param>
-  	<param-name>PAGES_PER_BLOCK</param-name>
-  	<param-value>5</param-value>
+    <param-name>PAGES_PER_BLOCK</param-name>
+    <param-value>5</param-value>
   </context-param>
+  <servlet>
+    <description></description>
+    <display-name>HelloServlet</display-name>
+    <servlet-name>HelloServlet</servlet-name>
+    <servlet-class>servlet.HelloServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloServlet</servlet-name>
+    <url-pattern>/12Servlet/HelloServlet.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DirectServletPrint</display-name>
+    <servlet-name>DirectServletPrint</servlet-name>
+    <servlet-class>servlet.DirectServletPrint</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DirectServletPrint</servlet-name>
+    <url-pattern>/12Servlet/DirectServletPrint.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FrontController</display-name>
+    <servlet-name>FrontController</servlet-name>
+    <servlet-class>servlet.FrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FrontController</servlet-name>
+    <url-pattern>*.one</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LifeCycle</display-name>
+    <servlet-name>LifeCycle</servlet-name>
+    <servlet-class>servlet.LifeCycle</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LifeCycle</servlet-name>
+    <url-pattern>/12Servlet/LifeCycle.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MemberAuth</servlet-name>
+    <servlet-class>servlet.MemberAuth</servlet-class>
+    <init-param>
+    	<param-name>admin_id</param-name>
+    	<param-value>nakja</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberAuth</servlet-name>
+    <url-pattern>/12Servlet/MemberAuth.mvc</url-pattern>
+  </servlet-mapping>
 </web-app>
