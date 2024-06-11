@@ -135,7 +135,7 @@
     <servlet-name>ListController</servlet-name>
     <url-pattern>/mvcboard/list.do</url-pattern>
   </servlet-mapping>
-  <servlet>
+ <servlet>
     <description></description>
     <display-name>WriteController</display-name>
     <servlet-name>WriteController</servlet-name>
@@ -158,5 +158,15 @@
   <servlet-mapping>
     <servlet-name>ViewController</servlet-name>
     <url-pattern>/mvcboard/view.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PassController</display-name>
+    <servlet-name>PassController</servlet-name>
+    <servlet-class>model2.mvcboard.PassController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PassController</servlet-name>
+    <url-pattern>/mvcboard/pass.do</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import fileupload.FileUtil;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,6 +13,7 @@ import utils.JSFunction;
 /**
  * Servlet implementation class WriteController
  */
+@WebServlet("/mvcboard/Write.do")
 public class WriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
